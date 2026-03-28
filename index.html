@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Татьяна Демкова — Тренер. Методолог. Фасилитатор.</title>
+
+    <!-- SEO и Open Graph -->
+    <meta name="description" content="Татьяна Демкова — сертифицированный тренер, методолог и фасилитатор с 18-летним опытом в корпоративном обучении.">
+    <meta name="keywords" content="тренер, фасилитатор, методолог, корпоративное обучение, Татьяна Демкова">
+    <meta property="og:title" content="Татьяна Демкова — Тренер. Методолог. Фасилитатор.">
+    <meta property="og:description" content="Сертифицированный тренер и архитектор образовательных программ с 18-летним опытом в корпоративном обучении.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="photo.jpg">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -595,6 +604,7 @@
             text-decoration: none;
             border-bottom: 1px solid var(--border);
             transition: border-color 0.3s ease;
+            cursor: pointer;
         }
 
         .contact-info-value a:hover {
@@ -645,6 +655,42 @@
             color: var(--accent-light);
         }
 
+        /* Согласие на обработку данных */
+        .form-consent {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .form-consent input[type="checkbox"] {
+            margin-top: 3px;
+            width: auto;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .form-consent label {
+            font-size: 0.8125rem;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-transform: none;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .form-consent label a {
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-consent label a:hover {
+            opacity: 0.7;
+        }
+
         .form-submit {
             align-self: flex-start;
             padding: 16px 48px;
@@ -665,6 +711,11 @@
             color: var(--text-primary);
         }
 
+        .form-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         .form-success {
             display: none;
             padding: 20px;
@@ -677,6 +728,46 @@
 
         .form-success.show {
             display: block;
+        }
+
+        /* Honeypot — скрытое поле от спам-ботов */
+        .ohnohoney {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 0;
+            width: 0;
+            z-index: -1;
+        }
+
+        /* Плавающая кнопка Telegram */
+        .floating-tg {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 900;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(44, 40, 36, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .floating-tg:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(44, 40, 36, 0.35);
+        }
+
+        .floating-tg svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-light);
         }
 
         footer {
@@ -731,6 +822,8 @@
             .book-club-details { grid-template-columns: 1fr; }
             .clients-list { gap: 12px; }
             .client-tag { padding: 10px 20px; font-size: 0.8125rem; }
+            .floating-tg { bottom: 24px; right: 24px; width: 48px; height: 48px; }
+            .floating-tg svg { width: 20px; height: 20px; }
             footer { flex-direction: column; gap: 24px; text-align: center; padding: 32px 24px; }
         }
 
@@ -794,11 +887,7 @@
                             <div class="stat-number">15 000</div>
                             <div class="stat-label">Обученных сотрудников в МВидео-Эльдорадо</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">10+</div>
-                            <div class="stat-label">Крупных корпоративных клиентов</div>
-                        </div>
-                        <div class="stat-item">
+                                              <div class="stat-item">
                             <div class="stat-number">2</div>
                             <div class="stat-label">Высших образования</div>
                         </div>
@@ -850,7 +939,7 @@
                 <div class="service-item reveal reveal-delay-2">
                     <div class="service-number">02</div>
                     <div class="service-name">Разработка авторских программ</div>
-                                        <div class="service-desc">Проектирование образовательных программ под задачи бизнеса — от концепции до методических материалов и системы оценки эффективности</div>
+                    <div class="service-desc">Проектирование образовательных программ под задачи бизнеса — от концепции до методических материалов и системы оценки эффективности</div>
                 </div>
                 <div class="service-item reveal reveal-delay-3">
                     <div class="service-number">03</div>
@@ -965,7 +1054,7 @@
                     <div class="contact-info-item">
                         <div class="contact-info-label">Телефон</div>
                         <div class="contact-info-value">
-                            <a href="tel:+79153388979">+7 (915) 338-89-79</a>
+                            <a href="#" id="phoneLink" onclick="revealPhone(event)">Показать телефон</a>
                         </div>
                     </div>
                     <div class="contact-info-item">
@@ -977,6 +1066,10 @@
                 </div>
                 <div class="reveal reveal-delay-3">
                     <form class="contact-form" id="contactForm">
+                        <!-- Honeypot — ловушка для спам-ботов -->
+                        <div class="ohnohoney">
+                            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                        </div>
                         <div class="form-group">
                             <label for="name">Ваше имя</label>
                             <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
@@ -993,7 +1086,11 @@
                             <label for="message">Сообщение</label>
                             <textarea id="message" name="message" rows="4" placeholder="Расскажите о вашем запросе" required></textarea>
                         </div>
-                        <button type="submit" class="form-submit">Отправить заявку</button>
+                        <div class="form-consent">
+                            <input type="checkbox" id="consent" required>
+                            <label for="consent">Отправляя форму, я даю согласие на обработку моих персональных данных в соответствии с <a href="#" onclick="alert('Оператор обрабатывает персональные данные (имя, email, телефон) исключительно для связи с вами по вашему запросу. Данные не передаются третьим лицам и хранятся до отзыва согласия.'); return false;">политикой конфиденциальности</a></label>
+                        </div>
+                        <button type="submit" class="form-submit" id="submitBtn" disabled>Отправить заявку</button>
                     </form>
                     <div class="form-success" id="formSuccess">
                         Спасибо за вашу заявку. Татьяна свяжется с вами в ближайшее время.
@@ -1003,21 +1100,30 @@
         </div>
     </section>
 
+    <!-- Плавающая кнопка Telegram -->
+    <a href="https://t.me/teatrdeistviy" target="_blank" rel="noopener" class="floating-tg" aria-label="Написать в Telegram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+    </a>
+
     <footer>
         <div class="footer-text">&copy; 2025 Татьяна Демкова. Все права защищены.</div>
         <div class="footer-links">
             <a href="https://t.me/teatrdeistviy" target="_blank" rel="noopener">Telegram</a>
-            <a href="tel:+79153388979">Позвонить</a>
+            <a href="#" onclick="revealPhone(event)">Позвонить</a>
             <a href="#contact">Написать</a>
         </div>
     </footer>
 
     <script>
+        // === NAVBAR SCROLL ===
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
+        // === MOBILE MENU ===
         const burger = document.getElementById('burger');
         const mobileMenu = document.getElementById('mobileMenu');
         let menuOpen = false;
@@ -1044,6 +1150,7 @@
             burger.children[2].style.transform = '';
         }
 
+        // === SCROLL REVEAL ===
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1057,13 +1164,54 @@
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+        // === PHONE OBFUSCATION ===
+        function revealPhone(e) {
+            e.preventDefault();
+            const p1 = '+7 (915) ';
+            const p2 = '338-89-79';
+            const full = p1 + p2;
+            const link = document.getElementById('phoneLink');
+            link.href = 'tel:+7915' + '3388979';
+            link.textContent = full;
+            link.onclick = null;
+
+            // Если клик был из футера — тоже обновим
+            if (e.target !== link) {
+                e.target.href = 'tel:+7915' + '3388979';
+                e.target.textContent = full;
+                e.target.onclick = null;
+            }
+        }
+
+        // === CONSENT CHECKBOX ===
+        const consentBox = document.getElementById('consent');
+        const submitBtn = document.getElementById('submitBtn');
+
+        consentBox.addEventListener('change', () => {
+            submitBtn.disabled = !consentBox.checked;
+        });
+
+        // === FORM SUBMISSION ===
         const contactForm = document.getElementById('contactForm');
         const formSuccess = document.getElementById('formSuccess');
 
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            // Honeypot check
+            const honeypot = contactForm.querySelector('input[name="_gotcha"]');
+            if (honeypot && honeypot.value) {
+                // Бот заполнил скрытое поле — тихо игнорируем
+                contactForm.style.display = 'none';
+                formSuccess.classList.add('show');
+                return;
+            }
+
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData);
+
+            // Удаляем honeypot из отправки
+            delete data._gotcha;
 
             try {
                 const response = await fetch('https://formspree.io/f/mjgpglrb', {
@@ -1093,7 +1241,9 @@
         });
 
         function fallbackMailto(data) {
-            const mailtoLink = 'mailto:ivanvavakinn@gmail.com?subject=' +
+            const u = 'ivanvavakinn';
+            const d = 'gmail.com';
+            const mailtoLink = 'mailto:' + u + '@' + d + '?subject=' +
                 encodeURIComponent('Заявка с сайта — ' + data.name) +
                 '&body=' + encodeURIComponent(
                     'Имя: ' + data.name + '\n' +
@@ -1104,8 +1254,10 @@
             window.location.href = mailtoLink;
         }
 
+        // === SMOOTH SCROLL ===
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
