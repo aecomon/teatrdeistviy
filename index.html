@@ -892,11 +892,10 @@
             } catch (error) { fallbackMailto(data); }
         });
 
-        function fallbackMailto(data) {
-            const u = 'ivanvavakinn'; const d = 'gmail.com';
-            const mailtoLink = 'mailto:' + u + '@' + d + '?subject=' + encodeURIComponent('ШВК — заявка от ' + data.name) +
-                '&body=' + encodeURIComponent('Имя: ' + data.name + '\nКонтакт: ' + data.phone + '\nСообщение: ' + (data.message || 'нет'));
-            window.location.href = mailtoLink;
+                function fallbackMailto(data) {
+            contactForm.style.display = 'none';
+            formSuccess.innerHTML = 'Произошла техническая ошибка.<br>Напишите мне напрямую в <a href="https://t.me/D_TaTa_V" target="_blank" style="color: var(--accent-teal); text-decoration: underline;">Telegram</a>';
+            formSuccess.classList.add('show');
         }
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
